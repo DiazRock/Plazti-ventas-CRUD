@@ -1,11 +1,14 @@
 import click
 from clients import commands as client_commands
 
+CLIENT_TABLE = '.clients.csv'
+
 
 @click.group()
 @click.pass_context
 def cli(ctx):
-    ctx = {}
-
+    ctx.obj = {}
+    ctx.obj['clients_table'] = CLIENT_TABLE
+    
 
 cli.add_command(client_commands.commands)

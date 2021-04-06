@@ -18,3 +18,5 @@ class Client:
     def schema():
         return ['name', 'company', 'email', 'position', 'uid']
     
+    
+    
