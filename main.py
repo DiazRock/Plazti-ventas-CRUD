@@ -33,6 +33,7 @@ def _get_client_field(field_name):
 
     return field
         
+
 def _get_client_name():
     client_name = None
 
@@ -75,6 +76,33 @@ def list_clients():
             position = client['position']))
 
 
+def update_client(client_id, updated_client):
+    global clients
+
+    if len(clients) -1 >= client_id:                
+        clients[client_id] = updated_client
+    else:
+        print('Client is not in clients list')
+
+
+def delete_client(client_name):
+    global clients
+
+    if client_name in clients:
+        clients.remove(client_name)
+    else:
+        print('Client is not in clients list')
+
+
+def search_client(client_name):
+    global clients
+    for client in clients:
+        if client != client_name:
+            continue
+        else:
+            return True
+
+
 def _print_wellcome():
     print('WELCOME TO PLATZI VENTAS')
     print('*' * 50)
@@ -107,7 +135,7 @@ if __name__ == '__main__':
         client_name = _get_client_name()
         updated_name = input('What is the client name?')
     
-        updated_client(client_name, updated_name)
+        update_client(client_name, updated_name)
     elif command == 'D':
         client_name = _get_client_name()
         delete_client(client_name)
