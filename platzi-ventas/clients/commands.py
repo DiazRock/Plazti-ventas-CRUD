@@ -8,6 +8,12 @@ def clients():
 
 
 @clients.command()
+@click.option(
+    '-n', '--name',
+    type = str,
+    prompt = True,
+    help= 'The client name'
+)
 @click.pass_context
 def create(ctx, name, company, email, position):
     '''Creates a new client '''
